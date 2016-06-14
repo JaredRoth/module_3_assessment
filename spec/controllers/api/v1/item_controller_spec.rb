@@ -47,6 +47,7 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
   end
 
   it "#create" do
+    skip
     post :create, name: "Pants", description: "Clothes", image_url: "a url"
     parsed_json = JSON.parse(response.body)
 

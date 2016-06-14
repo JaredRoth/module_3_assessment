@@ -23,4 +23,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem "pry", :require => "pry"
   gem 'rspec-rails', '~> 3.4'
+  gem 'capybara'
+  gem 'launchy'
 end
