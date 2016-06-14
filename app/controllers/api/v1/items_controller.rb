@@ -10,8 +10,7 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    item.delete
-    respond_with item
+    # what the fuck
+    respond_with status: 204 if Item.delete(params[:id])
   end
 end
