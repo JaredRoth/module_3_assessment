@@ -10,7 +10,7 @@ class BBService
   end
 
   def store
-    response = @connection.get "v1/stores(area(#{@params[:zip]},25))?format=json&show=longName,city,distance,phone,storeType&pageSize=25&apiKey=#{ENV['BB_KEY']}"
+    response = @connection.get "v1/stores(storeId=#{@params[:store_id]})?format=json&show=name,storeType,address,city,region,postalCode,hours&pageSize=25&apiKey=#{ENV['BB_KEY']}"
     @response = JSON.parse(response.body, symbolize_names: true)
   end
 end
