@@ -1,22 +1,23 @@
 <div>
-  <%= @results.total %> total stores
+  <%= @results[:total] %> total stores
 </div>
 <% @results[:stores].each_with_index do |store, i| %>
-  <div id="<%= i %>">
+<% break if i >= 15 %>
+  <div id="<%= i + 1 %>">
     <div class="name">
-      <%= store[:longName] %>
+      <a href="/stores/<%= store[:storeId] %>"> Name: <%= store[:longName] %></a>
     </div>
     <div class="city">
-      <%= store[:city] %>
+      City: <%= store[:city] %>
     </div>
     <div class="distance">
-      <%= store[:distance] %>
+      Distance: <%= store[:distance] %>
     </div>
     <div class="phone">
-      <%= store[:phone] %>
+      Phone: <%= store[:phone] %>
     </div>
     <div class="type">
-      <%= store[:storeType] %>
+      Type: <%= store[:storeType] %>
     </div>
   </div>
 <% end %>
