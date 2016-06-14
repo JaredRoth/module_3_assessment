@@ -19,6 +19,8 @@ group :development do
 end
 
 group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
   gem "pry", :require => "pry"
   gem 'rspec-rails', '~> 3.4'
 end
