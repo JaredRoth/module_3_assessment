@@ -5,6 +5,6 @@ class SearchController < ApplicationController
 
   def show
     @store = BBService.new(params).store[:stores].first
-    @hours = @store[:hours].split(';')
+    @hours = @store[:hoursAmPm].split(';')
   end
 end

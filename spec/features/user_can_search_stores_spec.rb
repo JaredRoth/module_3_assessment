@@ -40,23 +40,17 @@ RSpec.feature "User can search by zipcode" do
 
     expect(current_path).to eq("/stores/2740")
 
-    expect(page).to have_content("Name: Best Buy Mobile - Cherry Creek Shopping Center")
-    expect(page).to have_content("Type: Mobile")
-    expect(page).to have_content("Address: Mobile")
-
+    within ".name" do
+      expect(page).to have_content("Name: Cherry Creek Shopping Center")
+    end
+    within ".type" do
+      expect(page).to have_content("Type: Mobile")
+    end
+    within ".address" do
+      expect(page).to have_content("Address: 3000 East First Ave, Denver, CO 80206")
+    end
+    within ".hours" do
+      expect(page).to have_content("Mon: 10am-9pm Tue: 10am-9pm Wed: 10am-9pm Thurs: 10am-9pm Fri: 10am-9pm Sat: 10am-9pm Sun: 11am-6pm")
+    end
   end
 end
-
-# As a user
-# After I have searched a zip code for stores
-# When I click the name of a store
-# Then my current path should be "/stores/:store_id"
-# I should see the store name, store type and address with city, state and zip
-# I should see an unordered list of the store hours in the following format:
-#   * Mon: 10am-9pm
-#   * Tue: 10am-9pm
-#   * Wed: 10am-9pm
-#   * Thurs: 10am-9pm
-#   * Fri: 10am-9pm
-#   * Sat: 10am-9pm
-#   * Sun: 11am-7pm

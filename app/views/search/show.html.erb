@@ -1,2 +1,11 @@
-<h4>Name: <%= @store[:name] %></h4>
-<h5>Address: <%= @store[:name] %></h5>
+<h4 class="name">Name: <%= @store[:name] %> %></h4>
+<h4 class="type">Type: <%= @store[:storeType] %></h4>
+<h5 class="address">Address: <%= "#{@store[:address]}, #{@store[:city]}, #{@store[:region]} #{@store[:postalCode]}" %></h5>
+
+<ul class="hours">
+  <% @hours.each do |hour| %>
+  <li class="hour">
+    <%= hour %>
+  </li>
+  <% end %>
+</ul>
