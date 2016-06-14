@@ -1,0 +1,22 @@
+<div>
+  <%= @results.total %> total stores
+</div>
+<% @results[:stores].each_with_index do |store, i| %>
+  <div id="<%= i %>">
+    <div class="name">
+      <%= store[:longName] %>
+    </div>
+    <div class="city">
+      <%= store[:city] %>
+    </div>
+    <div class="distance">
+      <%= store[:distance] %>
+    </div>
+    <div class="phone">
+      <%= store[:phone] %>
+    </div>
+    <div class="type">
+      <%= store[:storeType] %>
+    </div>
+  </div>
+<% end %>

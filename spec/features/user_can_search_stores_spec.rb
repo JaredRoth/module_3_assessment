@@ -8,7 +8,25 @@ RSpec.feature "User can search by zipcode" do
     click_on "search"
 
     expect(current_path).to eq("/search")
-    require 'pry'; binding.pry
+
+    expect(page).to have_content("17 total stores")
+    expect(page).to have_css("#15")
+    expect(page).not_to have_css("#16")
+    within("#1 .name") do
+      expect(page).to have_content("Best Buy Mobile - Cherry Creek Shopping Center")
+    end
+    within("#1 .city") do
+      expect(page).to have_content("Denver")
+    end
+    within("#1 .distance") do
+      expect(page).to have_content("3.25")
+    end
+    within("#1 .phone") do
+      expect(page).to have_content("303-270-9189")
+    end
+    within("#1 .type") do
+      expect(page).to have_content("Mobile")
+    end
   end
 end
 
