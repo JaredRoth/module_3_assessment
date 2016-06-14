@@ -45,4 +45,15 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
 
     expect(parsed_json.count).to eq(0)
   end
+
+  it "#create" do
+    post :create, name: "Pants", description: "Clothes", image_url: "a url"
+    parsed_json = JSON.parse(response.body)
+
+    assert_response 201
+
+    expect(Item.first.name).to eq("Pants")
+    expect(Item.first.description).to eq("Clothes")
+    expect(Item.first.image_url).to eq("a url")
+  end
 end
